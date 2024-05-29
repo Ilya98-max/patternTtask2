@@ -1,11 +1,15 @@
+
 package org.example.main;
 
 import org.example.facade.BookingFacade;
 import org.example.facade.HotelBookingFacade;
+import org.example.repository.BookingRepository;
+import org.example.repository.impl.BookingRepositoryImpl;
 
-public class Main {
+public class main {
     public static void main(String[] args) {
-        BookingFacade bookingFacade = new HotelBookingFacade();
+        BookingRepository bookingRepository = new BookingRepositoryImpl();
+        BookingFacade bookingFacade = new HotelBookingFacade(bookingRepository);
 
 
         bookingFacade.bookRoom(101);
@@ -19,6 +23,6 @@ public class Main {
         bookingFacade.cancelBooking(101);
         bookingFacade.cancelBooking(102);
         bookingFacade.cancelBooking(101);
+        bookingFacade.cancelBooking(103);
     }
 }
-

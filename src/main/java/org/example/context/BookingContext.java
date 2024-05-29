@@ -1,7 +1,7 @@
 package org.example.context;
 
-import org.example.states.BookingState;
-import org.example.states.NewBookingState;
+import org.example.state.BookingState;
+import org.example.state.NewBookingState;
 
 public class BookingContext {
     private BookingState state;

@@ -1,4 +1,4 @@
-package org.example.states;
+package org.example.state;
 
 import org.example.context.BookingContext;
 

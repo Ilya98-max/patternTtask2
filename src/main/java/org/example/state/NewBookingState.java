@@ -1,21 +1,24 @@
-package org.example.states;
+package org.example.state;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.example.context.BookingContext;
 
 public class NewBookingState implements BookingState {
+    private static final Logger logger = LogManager.getLogger(NewBookingState.class);
     @Override
     public void bookRoom(BookingContext context) {
-        System.out.println("Booking room " + context.getRoomNumber());
+        logger.info("Booking room " + context.getRoomNumber());
     }
 
     @Override
     public void cancelBooking(BookingContext context) {
         context.setState(new CancelledBookingState());
-        System.out.println("Cancel a new booking for room " + context.getRoomNumber());
+        logger.info("Cancel a new booking for room " + context.getRoomNumber());
     }
     @Override
     public void confirmBooking(BookingContext context) {
         context.setState(new ConfirmedBookingState());
-        System.out.println("Booking is confirmed for room " + context.getRoomNumber());
+        logger.info("Booking is confirmed for room " + context.getRoomNumber());
     }
 }
