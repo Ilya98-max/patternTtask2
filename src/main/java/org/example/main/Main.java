@@ -1,9 +1,12 @@
 package org.example.main;
 
 import org.example.facade.BookingFacade;
-import org.example.facade.HotelBookingFacade;
+import org.example.facade.impl.HotelBookingFacade;
 import org.example.factory.*;
+import org.example.factory.impl.CancelledBookingStateFactory;
+import org.example.factory.impl.ConfirmedBookingStateFactory;
 import org.example.factory.impl.HotelBookingContextFactory;
+import org.example.factory.impl.NewBookingStateFactory;
 import org.example.reader.HotelFileReader;
 import org.example.repository.BookingRepository;
 import org.example.repository.impl.BookingRepositoryImpl;
