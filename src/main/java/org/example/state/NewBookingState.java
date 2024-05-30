@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.example.context.BookingContext;
 
 public class NewBookingState implements BookingState {
-    private static final Logger logger = LogManager.getLogger(NewBookingState.class);
+    private static final Logger logger = LogManager.getLogger(NewBookingState.class.getName());
     @Override
     public void bookRoom(BookingContext context) {
         logger.info("Booking room " + context.getRoomNumber());

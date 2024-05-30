@@ -5,7 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.example.context.BookingContext;
 
 public class ConfirmedBookingState implements BookingState {
-    private static final Logger logger = LogManager.getLogger(ConfirmedBookingState.class);
+    private static final Logger logger = LogManager.getLogger(ConfirmedBookingState.class.getName());
     @Override
     public void bookRoom(BookingContext context) {
         logger.info("Room " + context.getRoomNumber() + " is already booked and confirmed.");

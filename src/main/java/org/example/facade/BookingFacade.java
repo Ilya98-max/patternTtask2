@@ -7,3 +7,6 @@ public interface BookingFacade {
     void confirmBooking(int roomNumber);
 
 }
+
+
+

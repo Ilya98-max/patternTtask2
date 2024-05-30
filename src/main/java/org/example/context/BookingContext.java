@@ -1,15 +1,15 @@
 package org.example.context;
-
+import org.example.factory.BookingStateFactory;
 import org.example.state.BookingState;
-import org.example.state.NewBookingState;
+
 
 public class BookingContext {
     private BookingState state;
     private int roomNumber;
 
-    public BookingContext(int roomNumber) {
-        this.state = new NewBookingState();
+    public BookingContext(int roomNumber, BookingStateFactory stateFactory) {
         this.roomNumber = roomNumber;
+        this.state = stateFactory.createBookingState();
     }
 
     public void setState(BookingState state) {
