@@ -36,11 +36,11 @@ public class Main {
         for (int roomNumber : roomNumbers) {
             bookingFacade.bookRoom(roomNumber);
         }
-        bookingFacade.confirmBooking(101);
-        bookingFacade.bookRoom(101);
-        bookingFacade.cancelBooking(101);
-        bookingFacade.cancelBooking(102);
-        bookingFacade.cancelBooking(101);
+        for (int roomNumber : roomNumbers) {
+            bookingFacade.bookRoom(roomNumber);
+            bookingFacade.confirmBooking(roomNumber);
+            bookingFacade.cancelBooking(roomNumber);
+        }
         bookingFacade.cancelBooking(103);
     }
 }
