@@ -9,6 +9,7 @@ public class NewBookingState implements BookingState {
     private static final Logger logger = LogManager.getLogger(NewBookingState.class.getName());
     @Override
     public void bookRoom(BookingContext context) {
+        context.setState(new NewBookingState());
         logger.info("Booking room " + context.getRoomNumber());
     }
 

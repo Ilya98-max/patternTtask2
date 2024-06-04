@@ -16,9 +16,7 @@ public class Main {
     public static void main(String[] args) {
         String filePath = "booking_data.txt";
 
-
         List<Integer> roomNumbers = HotelFileReader.readBookingData(filePath);
-
 
         BookingRepository bookingRepository = new BookingRepositoryImpl();
         BookingStateFactory newBookingStateFactory = new NewBookingStateFactory();
@@ -34,7 +32,6 @@ public class Main {
                 cancelledBookingStateFactory,
                 confirmedBookingStateFactory
         );
-
 
         for (int roomNumber : roomNumbers) {
             bookingFacade.bookRoom(roomNumber);

@@ -9,6 +9,7 @@ public class ConfirmedBookingState implements BookingState {
     private static final Logger logger = LogManager.getLogger(ConfirmedBookingState.class.getName());
     @Override
     public void bookRoom(BookingContext context) {
+        context.setState(new NewBookingState());
         logger.info("Room " + context.getRoomNumber() + " is already booked and confirmed.");
     }
 
@@ -20,6 +21,7 @@ public class ConfirmedBookingState implements BookingState {
 
     @Override
     public void confirmBooking(BookingContext context) {
+        context.setState(new ConfirmedBookingState());
         logger.info("Booking for room " + context.getRoomNumber() + " is confirmed.");
     }
 }

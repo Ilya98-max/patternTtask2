@@ -14,19 +14,24 @@ public class HotelFileReader {
 
     public static List<Integer> readBookingData(String filePath) {
         List<Integer> roomNumbers = new ArrayList<>();
-        try (InputStream inputStream = HotelFileReader.class.getClassLoader().getResourceAsStream(filePath);
-             Scanner scanner = new Scanner(inputStream)) {
+        try (InputStream inputStream = HotelFileReader.class.getClassLoader().getResourceAsStream(filePath)) {
+            if (inputStream == null) {
+                logger.error("Resource not found: " + filePath);
+                return roomNumbers;
+            }
 
-            while (scanner.hasNextLine()) {
-                String line = scanner.nextLine().trim();
-                try {
-                    int roomNumber = Integer.parseInt(line);
-                    roomNumbers.add(roomNumber);
-                } catch (NumberFormatException e) {
-                    logger.error("Error parsing room number from line: " + line);
+            try (Scanner scanner = new Scanner(inputStream)) {
+                while (scanner.hasNextLine()) {
+                    String line = scanner.nextLine().trim();
+                    try {
+                        int roomNumber = Integer.parseInt(line);
+                        roomNumbers.add(roomNumber);
+                    } catch (NumberFormatException e) {
+                        logger.error("Error parsing room number from line: " + line);
+                    }
                 }
             }
-        } catch (IOException | NullPointerException e) {
+        } catch (IOException e) {
             logger.error("Error reading file: " + filePath, e);
         }
         return roomNumbers;
